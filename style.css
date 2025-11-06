@@ -24,7 +24,7 @@ body{
 .bg-leaves::before,
 .bg-leaves::after{
   content:"";position:absolute;inset:-6%;
-  background:url("leaves-bg.jpg") center/cover no-repeat fixed;
+  background:url("images/leaves-bg.jpg") center/cover no-repeat fixed;
   filter:saturate(1.05) contrast(1.05);
   will-change:transform;
 }
