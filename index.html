@@ -1,118 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Evento Fin de Año – Aeropuerto Tucumán 2025</title>
-<meta name="description" content="Full Pass y Cena. Reservá en 1 minuto.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    /* Colores base */
-    --text:#EAF2FF;
-    --muted:#b9c6da;
-    --bg:#060E14;
-
-    /* Neón y acentos */
-    --neon:#3cf2ff;
-    --neon-halo:#3cf2ff55;
-    --accent:#00E0A4;
-    --accent2:#FFD166;
-
-    /* Tarjetas */
-    --card:#0b1620;
-    --border:#183041;
-
-    /* Max width */
-    --w:1120px;
-  }
-  *{box-sizing:border-box} html,body{margin:0}
-  body{
-    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;
-    color:var(--text); background:var(--bg);
-  }
-  a{color:var(--neon); text-decoration:none}
-  .wrap{max-width:var(--w); margin:0 auto; padding:24px}
-
-  /* ===== Fondo de hojas animado (suave, solo CSS) ===== */
-  .bg-leaves{position:fixed; inset:0; z-index:-2; overflow:hidden; background:#061018}
-  .bg-leaves::before,
-  .bg-leaves::after{
-    content:""; position:absolute; inset:-6%;
-    background:url("leaves-bg.jpg") center/cover no-repeat fixed;
-    filter:saturate(1.05) contrast(1.05);
-    will-change:transform, opacity;
-  }
-  .bg-leaves::before{opacity:.85; transform:scale(1.18); animation:panSlow 60s linear infinite}
-  .bg-leaves::after {opacity:.45; transform:scale(1.22) rotate(.2deg); mix-blend-mode:soft-light; animation:panSlow2 90s linear infinite}
-  @keyframes panSlow { 0%{transform:translate3d(0,0,0) scale(1.18)} 50%{transform:translate3d(-2%, -1.5%,0) scale(1.18)} 100%{transform:translate3d(0,0,0) scale(1.18)}}
-  @keyframes panSlow2{ 0%{transform:translate3d(0,0,0) scale(1.22) rotate(.2deg)} 50%{transform:translate3d(2%, 1.5%,0) scale(1.22) rotate(.2deg)} 100%{transform:translate3d(0,0,0) scale(1.22) rotate(.2deg)}}
-  @media (prefers-reduced-motion: reduce){ .bg-leaves::before,.bg-leaves::after{animation:none}}
-
-  /* ===== Utilidades ===== */
-  .section{margin:36px 0}
-  h1,h2{margin:0 0 10px}
-  h1{font-size:40px; line-height:1.1}
-  h2{font-size:28px}
-  p.lead{color:var(--muted)}
-  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-  .center{text-align:center}
-  .badge{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:#08121a; color:#9fcaea; font-size:12px}
-  .btn{appearance:none; border:0; border-radius:12px; padding:12px 18px; font-weight:800; cursor:pointer}
-  .btn-primary{background:var(--accent); color:#00141a; box-shadow:0 0 18px #00e0a41f}
-  .btn-outline{background:transparent; color:var(--text); border:1px solid var(--border)}
-  .note{font-size:12px; color:#9fb1c8}
-
-  /* ===== Tarjeta con marco de neón ===== */
-  .neon-card{
-    position:relative; padding:18px; border-radius:18px; background:linear-gradient(180deg,#0b1620 0%, #08141c 100%);
-    overflow:hidden; isolation:isolate;
-  }
-  .neon-card::before{
-    content:""; position:absolute; inset:8px; border-radius:16px;
-    box-shadow:0 0 0 2px var(--neon), inset 0 0 24px var(--neon-halo), 0 0 48px var(--neon-halo);
-    pointer-events:none; z-index:2;
-  }
-  .neon-card::after{
-    /* halo suave que se derrama por fuera */
-    content:""; position:absolute; inset:-12px; border-radius:26px; box-shadow:0 0 80px var(--neon-halo); z-index:1;
-  }
-  .price{font-size:30px; font-weight:800; margin:2px 0 10px}
-  ul.clean{list-style:none; padding:0; margin:8px 0 0; display:flex; flex-direction:column; gap:6px; color:#d7e3f3}
-
-  /* ===== Hero ===== */
-  .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center}
-  .pill-row{display:flex; gap:10px; flex-wrap:wrap}
-  .pill{font-size:12px; color:#9fcaea; border:1px solid var(--border); background:#08121a; padding:6px 10px; border-radius:999px}
-
-  /* ===== Countdown ===== */
-  .timer{display:flex; gap:12px; justify-content:center; margin-top:10px}
-  .box{background:#0a1520; border:1px solid var(--border); border-radius:16px; padding:12px 14px; min-width:82px}
-  .num{font-size:22px; font-weight:800; text-align:center}
-  .lbl{font-size:12px; color:#9fb1c8; text-align:center}
-
-  /* ===== Galería ===== */
-  .gallery img{
-    width:100%; height:220px; object-fit:cover; border-radius:14px; border:1px solid var(--border);
-    box-shadow:0 8px 30px #00000040;
-  }
-
-  /* ===== Cards precios ===== */
-  .buy-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-  .buy-card h3{margin:0 0 6px}
-  .buy-card .btn{width:100%; margin-top:10px}
-
-  /* ===== Footer ===== */
-  footer{color:#98a8bb; padding:36px 0 60px; text-align:center}
-
-  /* ===== Responsive ===== */
-  @media (max-width: 980px){
-    .hero{grid-template-columns:1fr}
-    .grid-2,.grid-3,.buy-grid{grid-template-columns:1fr}
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evento Fin de Año – Aeropuerto Tucumán 2025</title>
+  <meta name="description" content="Full Pass y Cena · Domingo 14 de diciembre · San Miguel de Tucumán">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -120,14 +14,14 @@
 <div class="bg-leaves"></div>
 
 <div class="wrap">
-  <!-- =============== HERO =============== -->
+  <!-- HERO -->
   <section class="hero section" id="hero">
     <div class="neon-card">
       <span class="badge">✈️ Aeropuerto Tucumán · Fin de Año 2025</span>
       <h1>Un día para celebrar juntos 🎉</h1>
       <p class="lead">
-        Sábado <b>6 de diciembre</b> · <b>12:00 → 04:00</b> · Quincho con pileta en El Cadillal.  
-        Elegí tu tarjeta y reservá en 1 minuto.
+        Domingo <b>14 de diciembre</b> · <b>12:00 → 04:00</b>  
+        Quincho con pileta – <b>Marcos Avellaneda 1125, San Miguel de Tucumán</b>.
       </p>
       <div class="pill-row">
         <span class="pill">☀️ Almuerzo + Pileta 12–20</span>
@@ -135,38 +29,41 @@
         <span class="pill">🎶 Música y luces (noche)</span>
         <span class="pill">🥤 Bebidas sin alcohol incluidas</span>
       </div>
-      <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+      <div class="cta-buttons">
         <a href="#comprar" class="btn btn-primary">Ver tarjetas</a>
         <a href="#form" class="btn btn-outline">Confirmar presencia</a>
       </div>
-      <p class="note" style="margin-top:8px">* El alcohol lo lleva cada uno. El costo del quincho se prorratea entre todos.</p>
+      <p class="note">* El alcohol lo lleva cada uno. El costo del quincho se prorratea entre todos.</p>
     </div>
 
     <div class="neon-card">
-      <h2 class="center" style="margin-bottom:6px">Cuenta regresiva</h2>
-      <div id="timer" class="timer" aria-live="polite"></div>
+      <h2 class="center">Cuenta regresiva</h2>
+      <div id="timer" class="timer"></div>
       <p class="note center">¡No te quedes afuera! Cupos limitados (≈48).</p>
     </div>
   </section>
 
-  <!-- =============== IDEA =============== -->
+  <!-- IDEA -->
   <section class="section" id="idea">
     <div class="grid-2">
       <div class="neon-card">
         <h2>La idea</h2>
-        <p class="lead">Cerramos el año con un día completo de equipo, relax y agradecimiento. Asado al mediodía, pileta, sobremesa larga y, por la noche, cena con música y luces.</p>
+        <p class="lead">
+          Cerramos el año con un día completo de equipo, relax y agradecimiento.  
+          Asado al mediodía, pileta, sobremesa larga y, por la noche, cena con música y luces.
+        </p>
         <ul class="clean">
-          <li>🤝 Fortalecer la camaradería del aeropuerto</li>
+          <li>🤝 Fortalecer la camaradería</li>
           <li>🍖 Asado mediodía + noche</li>
-          <li>🏊‍♂️ Pileta habilitada durante el día</li>
-          <li>🎶 Fiesta y música por la noche</li>
+          <li>🏊‍♂️ Pileta durante el día</li>
+          <li>🎶 Fiesta nocturna</li>
         </ul>
       </div>
       <div class="neon-card">
         <h2>Programa</h2>
         <ul class="clean">
           <li><b>12:00</b> Recepción y almuerzo</li>
-          <li><b>15:00</b> Tarde de pileta y descanso</li>
+          <li><b>15:00</b> Pileta y descanso</li>
           <li><b>20:00</b> Cena principal</li>
           <li><b>22:30</b> Brindis y música</li>
           <li><b>04:00</b> Cierre</li>
@@ -175,51 +72,39 @@
     </div>
   </section>
 
-  <!-- =============== LUGAR =============== -->
+  <!-- LUGAR -->
   <section class="section" id="lugar">
     <div class="neon-card">
       <h2>Lugar</h2>
-      <p class="lead">Quincho con pileta en <b>El Cadillal</b>. Espacio amplio, estacionamiento y ambiente natural.</p>
-      <div class="grid-2" style="margin-top:10px">
-        <div>
-          <p class="note">Mapa (referencial)</p>
-          <iframe
-            style="width:100%; height:280px; border:1px solid var(--border); border-radius:14px"
-            src="https://maps.google.com/maps?q=El%20Cadillal%2C%20Tucum%C3%A1n&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            loading="lazy"
-          ></iframe>
-        </div>
-        <div>
-          <ul class="clean">
-            <li>🏊‍♂️ Pileta disponible</li>
-            <li>🔥 Asador equipado</li>
-            <li>🎶 Sonido y luces para la noche</li>
-            <li>🅿️ Estacionamiento</li>
-          </ul>
-          <p class="note" style="margin-top:8px">* Si llueve, se hace igual (quincho techado). Pileta sujeta al clima.</p>
-        </div>
-      </div>
+      <p class="lead">
+        📍 <b>Marcos Avellaneda 1125, San Miguel de Tucumán</b>  
+        Quincho con pileta, asador, espacio amplio y estacionamiento.
+      </p>
+      <iframe
+        class="mapa"
+        src="https://maps.google.com/maps?q=Marcos%20Avellaneda%201125%20San%20Miguel%20de%20Tucum%C3%A1n&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        loading="lazy">
+      </iframe>
     </div>
   </section>
 
-  <!-- =============== FOTOS DEL LUGAR =============== -->
+  <!-- FOTOS -->
   <section class="section" id="fotos">
-    <h2 style="margin-bottom:10px">Fotos del lugar</h2>
+    <h2>Fotos del lugar</h2>
     <div class="gallery grid-3">
-      <!-- Reemplazá las imágenes por las reales -->
-      <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1200&auto=format&fit=crop" alt="Vista 1 del lugar">
-      <img src="https://images.unsplash.com/photo-1496412705862-e0088f16f791?q=80&w=1200&auto=format&fit=crop" alt="Vista 2 del lugar">
-      <img src="https://images.unsplash.com/photo-1529694157871-0b5c0dff7c33?q=80&w=1200&auto=format&fit=crop" alt="Vista 3 del lugar">
+      <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&w=1200" alt="Vista 1">
+      <img src="https://images.unsplash.com/photo-1496412705862-e0088f16f791?q=80&w=1200" alt="Vista 2">
+      <img src="https://images.unsplash.com/photo-1529694157871-0b5c0dff7c33?q=80&w=1200" alt="Vista 3">
     </div>
   </section>
 
-  <!-- =============== TARJETAS =============== -->
+  <!-- TARJETAS -->
   <section class="section" id="comprar">
-    <h2 class="center" style="margin-bottom:12px">Elegí tu tarjeta</h2>
+    <h2 class="center">Elegí tu tarjeta</h2>
     <div class="buy-grid">
       <div class="neon-card buy-card">
         <h3>🌙 Tarjeta Noche</h3>
-        <div class="price">$<span id="precioCena">55.000</span></div>
+        <div class="price">$55.000</div>
         <ul class="clean">
           <li>🍖 Cena + ensaladas</li>
           <li>🍮 Postre</li>
@@ -230,69 +115,40 @@
       </div>
       <div class="neon-card buy-card">
         <h3>☀️ Full Pass</h3>
-        <div class="price">$<span id="precioFull">65.000</span></div>
+        <div class="price">$65.000</div>
         <ul class="clean">
-          <li>🏊‍♂️ Pileta + quincho todo el día</li>
+          <li>🏊‍♂️ Pileta todo el día</li>
           <li>🍖 Almuerzo + 🍖 Cena</li>
           <li>🥤 Bebidas sin alcohol + postres</li>
-          <li>🎶 Música y luces por la noche</li>
+          <li>🎶 Música nocturna</li>
         </ul>
         <a href="#form" class="btn btn-primary">Confirmar presencia</a>
       </div>
     </div>
-    <p class="note center" style="margin-top:10px">* El alcohol lo lleva cada uno. Precios orientativos.</p>
+    <p class="note center">* El alcohol lo lleva cada uno.</p>
   </section>
 
-  <!-- =============== CONFIRMAR PRESENCIA =============== -->
+  <!-- FORM -->
   <section class="section center" id="form">
     <div class="neon-card" style="display:inline-block; max-width:760px; text-align:left">
       <h2>Confirmar presencia</h2>
-      <p class="lead">Completá el formulario para que podamos organizar todo perfecto. Vas a poder elegir <b>Tarjeta Noche</b> o <b>Full Pass</b>.</p>
-      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px">
+      <p class="lead">
+        Completá el formulario para elegir tu tipo de tarjeta y confirmar tu asistencia al evento.
+      </p>
+      <div class="cta-buttons">
         <a id="linkForm" class="btn btn-primary" target="_blank" rel="noopener">Ir al Google Form</a>
         <a href="#comprar" class="btn btn-outline">Volver a tarjetas</a>
       </div>
-      <p class="note" style="margin-top:8px">Si necesitás ayuda, escribinos al WhatsApp del comité organizador.</p>
+      <p class="note">Si necesitás ayuda, contactate con el comité organizador.</p>
     </div>
   </section>
 
-  <!-- =============== FOOTER =============== -->
+  <!-- FOOTER -->
   <footer>
-    © 2025 Aeropuerto de Tucumán · Organización del Evento
+    © 2025 Aeropuerto Tucumán · Organización del Evento
   </footer>
 </div>
 
-<script>
-  // ================= CONFIG RÁPIDA =================
-  const CONFIG = {
-    fechaEvento: '2025-12-06T12:00:00-03:00',
-    precios: { cena: 55000, full: 65000 },
-    googleFormURL: 'https://forms.gle/tu-link-aqui' // <-- reemplazar por tu Form real
-  };
-
-  // Precios en UI
-  document.getElementById('precioCena').textContent = CONFIG.precios.cena.toLocaleString('es-AR');
-  document.getElementById('precioFull').textContent = CONFIG.precios.full.toLocaleString('es-AR');
-  document.getElementById('linkForm').href = CONFIG.googleFormURL;
-
-  // Countdown
-  const timerEl = document.getElementById('timer');
-  function pad(n){return String(n).padStart(2,'0')}
-  function tick(){
-    const now = new Date();
-    const end = new Date(CONFIG.fechaEvento);
-    const diff = Math.max(0, end - now);
-    const d = Math.floor(diff/86400000);
-    const h = Math.floor(diff%86400000/3600000);
-    const m = Math.floor(diff%3600000/60000);
-    const s = Math.floor(diff%60000/1000);
-    timerEl.innerHTML = `
-      <div class="box"><div class="num">${pad(d)}</div><div class="lbl">días</div></div>
-      <div class="box"><div class="num">${pad(h)}</div><div class="lbl">horas</div></div>
-      <div class="box"><div class="num">${pad(m)}</div><div class="lbl">min</div></div>
-      <div class="box"><div class="num">${pad(s)}</div><div class="lbl">seg</div></div>`;
-  }
-  setInterval(tick, 1000); tick();
-</script>
+<script src="app.js"></script>
 </body>
 </html>
