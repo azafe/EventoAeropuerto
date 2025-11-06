@@ -1,1 +1,336 @@
-Test
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evento Fin de Año – Aeropuerto Tucumán 2025</title>
+  <meta name="description" content="Elegí tu tarjeta: Cena o Full Pass. Reservá en 1 minuto.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b1220;
+      --fg: #ffffff;
+      --muted:#cbd5e1;
+      --brand: #f97316; /* naranja full pass */
+      --brand2:#0ea5e9; /* acento */
+      --card:#0f172a; 
+      --card2:#111827;
+      --ok:#10b981;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#0b1220 0%, #111827 100%); color:var(--fg); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto; line-height:1.45}
+    a{color:var(--brand2); text-decoration:none}
+    .wrap{max-width:1120px;margin:0 auto;padding:24px}
+    header{padding:28px 0 12px}
+    .badge{display:inline-flex;gap:8px;align-items:center;background:#0e1729;border:1px solid #1f2937;color:#93c5fd;padding:6px 10px;border-radius:999px;font-size:12px}
+    .hero{display:grid;grid-template-columns:1.1fr 0.9fr;gap:28px;align-items:center;padding:24px 0}
+    h1{font-size:40px;line-height:1.1;margin:12px 0 10px}
+    .lead{color:var(--muted);font-size:16px}
+    .card{background:linear-gradient(180deg,#0e1729 0%, #0b1220 100%); border:1px solid #1f2937;border-radius:20px;padding:20px}
+    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .btn{appearance:none;border:0;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer}
+    .btn-primary{background:var(--brand);color:#111827}
+    .btn-light{background:#e5e7eb;color:#111827}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .price-card{background:linear-gradient(180deg,#111827 0%, #0b1220 100%);border:1px solid #1f2937;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:10px}
+    .price{font-size:28px;font-weight:800}
+    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #1f2937;color:#93c5fd;border-radius:999px;padding:6px 10px;font-size:12px}
+    ul.clean{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:#d1d5db}
+    .when{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+    .small{font-size:12px;color:#a8b1c2}
+    section{margin:34px 0}
+    .faq details{background:#0b1324;border:1px solid #1f2937;border-radius:14px;padding:12px}
+    .faq details+details{margin-top:10px}
+    footer{color:#9aa4b5;padding:30px 0 50px}
+    .accent{color:#fbbf24}
+    .map{width:100%;height:280px;border:0;border-radius:16px}
+    .timer{display:flex;gap:10px;margin-top:10px}
+    .timer .box{background:#0b1324;border:1px solid #1f2937;border-radius:12px;padding:10px 12px;text-align:center;min-width:72px}
+    .timer .num{font-size:20px;font-weight:800}
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+    .modal{background:#0b1324;border:1px solid #1f2937;border-radius:18px;max-width:520px;width:100%;padding:18px}
+    .modal h3{margin:6px 0 2px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{font-size:12px;color:#9aa4b5}
+    input,select{width:100%;padding:12px;border-radius:12px;border:1px solid #223047;background:#0a1120;color:#e5e7eb}
+    .modal .actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .tag{font-size:12px;background:#0e1729;border:1px solid #1f2937;border-radius:8px;padding:6px 8px;color:#93c5fd}
+    .note{font-size:12px;color:#9aa4b5;margin-top:8px}
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .when{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="badge">✈️ Aeropuerto Tucumán · Fin de Año 2025</span>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>Un día para celebrar juntos 🎉</h1>
+        <p class="lead">Sábado <b>6 de diciembre</b> · <b>12:00 → 04:00</b> · Quincho con pileta en El Cadillal. Elegí tu tarjeta y reservá en 1 minuto.</p>
+        <div class="when">
+          <div class="card">
+            <div class="small">ALMUERZO + PILETA</div>
+            <div><b>12:00–20:00</b> · Asado, bebidas sin alcohol y postre.</div>
+          </div>
+          <div class="card">
+            <div class="small">CENA + FIESTA</div>
+            <div><b>20:00–04:00</b> · Asado, postre, música y luces.</div>
+          </div>
+          <div class="card">
+            <div class="small">UBICACIÓN</div>
+            <div>Quincho en <b>El Cadillal</b>. Estacionamiento y pileta.</div>
+          </div>
+        </div>
+        <div class="timer" id="timer"></div>
+        <div class="cta">
+          <button class="btn btn-primary" data-open-checkout>Comprar ahora</button>
+          <a class="btn btn-light" href="#precios">Ver precios</a>
+        </div>
+        <div class="note">* El alcohol lo lleva cada uno. El costo del quincho se prorratea entre todos los asistentes.</div>
+      </div>
+
+      <div class="grid-2" id="precios">
+        <div class="price-card">
+          <span class="pill">🌙 Cena</span>
+          <div class="price">$<span id="precioCena">55.000</span></div>
+          <ul class="clean">
+            <li>🍖 Asado + ensaladas</li>
+            <li>🍮 Postre</li>
+            <li>🥤 Bebidas sin alcohol (gaseosas/agua)</li>
+            <li>🎶 Música y luces</li>
+          </ul>
+          <button class="btn btn-primary" data-plan="Cena" data-open-checkout>Comprar Cena</button>
+        </div>
+        <div class="price-card" style="border-color:#374151;background:linear-gradient(180deg,#1f2937 0%, #0b1220 100%)">
+          <span class="pill" style="color:#fed7aa;border-color:#374151">☀️ Full Pass</span>
+          <div class="price">$<span id="precioFull">65.000</span></div>
+          <ul class="clean">
+            <li>🏊‍♂️ Pileta + quincho todo el día</li>
+            <li>🍖 Almuerzo + 🍖 Cena</li>
+            <li>🥤 Bebidas sin alcohol + 🍮 Postres</li>
+            <li>🎶 Música y luces en la noche</li>
+          </ul>
+          <button class="btn btn-primary" data-plan="Full Pass" data-open-checkout>Comprar Full Pass</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 style="margin:0 0 8px">Detalles importantes</h2>
+      <div class="grid-2">
+        <div>
+          <p class="small">Incluye</p>
+          <ul class="clean">
+            <li>🍖 Asado (mediodía y/o noche)</li>
+            <li>🥤 Bebidas sin alcohol (barra libre)</li>
+            <li>🍮 Postres</li>
+            <li>🎶 Música y luces (noche)</li>
+            <li>🏊‍♂️ Uso de pileta (día)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="small">No incluye</p>
+          <ul class="clean">
+            <li>🍺 Bebidas alcohólicas (las lleva cada uno)</li>
+            <li>Traslados</li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <p class="small">Ubicación (referencial)</p>
+        <iframe class="map" src="https://maps.google.com/maps?q=El%20Cadillal%2C%20Tucum%C3%A1n&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2 style="margin:0 0 12px">Preguntas frecuentes</h2>
+      <details>
+        <summary>¿Cómo pago?</summary>
+        <p>Podés pagar con Mercado Pago (débito/crédito) o reservar por WhatsApp y te enviamos el link de pago.</p>
+      </details>
+      <details>
+        <summary>¿Puedo cambiar de tarjeta más adelante?</summary>
+        <p>Sí, hasta la fecha límite de confirmación (sujeto a disponibilidad).</p>
+      </details>
+      <details>
+        <summary>¿Qué pasa si llueve?</summary>
+        <p>El evento se realiza en quincho techado. La pileta queda sujeta al clima.</p>
+      </details>
+      <details>
+        <summary>¿Fecha límite de confirmación?</summary>
+        <p>Una semana antes del evento o hasta agotar 48 lugares.</p>
+      </details>
+    </section>
+
+    <section class="card" style="text-align:center">
+      <h3 style="margin:6px 0">¿Listo para reservar?</h3>
+      <button class="btn btn-primary" data-open-checkout>Elegir tarjeta</button>
+      <div class="note">Podés comprar varias para tu equipo.</div>
+    </section>
+
+    <footer>
+      <div>© 2025 Aeropuerto de Tucumán · Organización del Evento</div>
+    </footer>
+  </div>
+
+  <!-- Modal Checkout -->
+  <div class="modal-backdrop" id="backdrop">
+    <div class="modal">
+      <h3>Completar reserva</h3>
+      <div class="row">
+        <div>
+          <label>Nombre y Apellido</label>
+          <input id="fNombre" placeholder="Ej: Juan Pérez">
+        </div>
+        <div>
+          <label>Área / Dependencia</label>
+          <input id="fArea" placeholder="Ej: CNS, TWR, Plan de Vuelo">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Email</label>
+          <input id="fEmail" type="email" placeholder="tu@correo.com">
+        </div>
+        <div>
+          <label>Plan</label>
+          <select id="fPlan">
+            <option value="Cena">Cena</option>
+            <option value="Full Pass">Full Pass</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Cantidad</label>
+          <input id="fCantidad" type="number" min="1" value="1">
+        </div>
+        <div>
+          <label>Total estimado</label>
+          <input id="fTotal" disabled>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" id="btnMP">Pagar con Mercado Pago</button>
+        <button class="btn btn-light" id="btnWA">Reservar por WhatsApp</button>
+        <span class="tag" id="miniInfo"></span>
+        <button class="btn" style="margin-left:auto" id="btnClose">Cerrar</button>
+      </div>
+      <div class="note">El alcohol lo lleva cada uno. Una vez confirmada la compra te enviamos el comprobante.</div>
+    </div>
+  </div>
+
+  <script>
+    // ======================
+    // CONFIGURACIÓN RÁPIDA
+    // ======================
+    const CONFIG = {
+      fechaEvento: '2025-12-06T12:00:00-03:00',
+      telefonoWhatsApp: '5493810000000', // <-- CAMBIAR por el número que recibirá las reservas
+      precios: { cena: 55000, full: 65000 },
+      // Pegá aquí tus links de Mercado Pago (preference URLs) cuando los tengas:
+      mpLinks: {
+        Cena: 'https://link-de-mercadopago-cena',       // <-- opcional
+        'Full Pass': 'https://link-de-mercadopago-full' // <-- opcional
+      }
+    };
+
+    // Contador
+    const timerEl = document.getElementById('timer');
+    function pad(n){ return String(n).padStart(2,'0'); }
+    function tick(){
+      const now = new Date();
+      const end = new Date(CONFIG.fechaEvento);
+      const diff = Math.max(0, end - now);
+      const d = Math.floor(diff/86400000);
+      const h = Math.floor((diff%86400000)/3600000);
+      const m = Math.floor((diff%3600000)/60000);
+      const s = Math.floor((diff%60000)/1000);
+      timerEl.innerHTML = `
+        <div class="box"><div class="num">${pad(d)}</div><div class="small">días</div></div>
+        <div class="box"><div class="num">${pad(h)}</div><div class="small">horas</div></div>
+        <div class="box"><div class="num">${pad(m)}</div><div class="small">min</div></div>
+        <div class="box"><div class="num">${pad(s)}</div><div class="small">seg</div></div>`;
+    }
+    setInterval(tick, 1000); tick();
+
+    // Precios en UI
+    document.getElementById('precioCena').textContent = CONFIG.precios.cena.toLocaleString('es-AR');
+    document.getElementById('precioFull').textContent = CONFIG.precios.full.toLocaleString('es-AR');
+
+    // Modal
+    const backdrop = document.getElementById('backdrop');
+    const openBtns = document.querySelectorAll('[data-open-checkout]');
+    const planBtns = document.querySelectorAll('[data-plan]');
+    const fNombre = document.getElementById('fNombre');
+    const fArea = document.getElementById('fArea');
+    const fEmail = document.getElementById('fEmail');
+    const fPlan = document.getElementById('fPlan');
+    const fCantidad = document.getElementById('fCantidad');
+    const fTotal = document.getElementById('fTotal');
+    const miniInfo = document.getElementById('miniInfo');
+
+    openBtns.forEach(b=>b.addEventListener('click', ()=>{
+      backdrop.style.display='flex';
+      fNombre.focus();
+      miniInfo.textContent = '';
+      calcTotal();
+    }));
+    planBtns.forEach(b=>b.addEventListener('click', ()=>{
+      backdrop.style.display='flex';
+      fPlan.value = b.dataset.plan;
+      calcTotal();
+    }));
+    document.getElementById('btnClose').onclick = ()=>backdrop.style.display='none';
+
+    function calcTotal(){
+      const plan = fPlan.value;
+      const cant = Math.max(1, parseInt(fCantidad.value||'1',10));
+      const unit = plan === 'Cena' ? CONFIG.precios.cena : CONFIG.precios.full;
+      const total = unit*cant;
+      fTotal.value = '$ ' + total.toLocaleString('es-AR');
+      return {plan, cant, unit, total};
+    }
+    fPlan.onchange = fCantidad.oninput = calcTotal;
+
+    // WhatsApp
+    document.getElementById('btnWA').onclick = ()=>{
+      const {plan, cant, unit, total} = calcTotal();
+      if(!fNombre.value || !fEmail.value){
+        miniInfo.textContent = 'Completá nombre y email para continuar';
+        return;
+      }
+      const msg = `Hola! Quiero reservar para el Evento Fin de Año Aeropuerto Tucumán 2025.%0A`+
+                  `Nombre: ${fNombre.value}%0AÁrea: ${fArea.value||'-'}%0AEmail: ${fEmail.value}%0A`+
+                  `Plan: ${plan}%0ACantidad: ${cant}%0ATotal estimado: $${total.toLocaleString('es-AR')}`;
+      const url = `https://wa.me/${CONFIG.telefonoWhatsApp}?text=${msg}`;
+      window.open(url,'_blank');
+    };
+
+    // Mercado Pago
+    document.getElementById('btnMP').onclick = ()=>{
+      const {plan} = calcTotal();
+      const link = CONFIG.mpLinks[plan];
+      if(!link || link.startsWith('http')===false){
+        miniInfo.textContent = 'Link de Mercado Pago no configurado. Usá WhatsApp para reservar.';
+        return;
+      }
+      window.open(link,'_blank');
+    };
+
+    // Accesibilidad: cerrar con ESC
+    document.addEventListener('keydown', e=>{
+      if(e.key==='Escape') backdrop.style.display='none';
+    });
+  </script>
+</body>
+</html>
