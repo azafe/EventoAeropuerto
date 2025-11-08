@@ -1,66 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fin de Año · Aeropuerto Tucumán 2025</title>
 
-  <!-- Nuevas fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <!-- Fuentes: cursiva elegante + legible -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg-leaves"></div>
 
-  <div class="wrap">
-    <!-- =============== HERO =============== -->
-    <section class="hero section" id="hero">
-      <!-- ÚNICA con neón -->
-      <div class="neon-card">
-        <span class="badge">✈️ Aeropuerto Tucumán • Fin de Año 2025</span>
-        <h1 class="script">Un día para celebrar juntos</h1>
-        <p class="lead">
-          Cerramos el año con un día completo de equipo, relax y agradecimiento.
-          Asado al mediodía, pileta, sobremesa larga y, por la noche, cena con música y luces.
-        </p>
+  <!-- ====== HERO FULL ====== -->
+  <header id="hero" class="hero">
+    <div class="hero-overlay"></div>
 
-        <!-- Datos clave -->
-        <ul class="clean" style="margin-top:6px">
+    <!-- Texto principal -->
+    <div class="hero-inner">
+  <h1 class="script big-title">Fiesta de Fin de Año 2025</h1>
+  <h2 class="script subtitle">Aeropuerto Tucumán</h2>
+</div>
+
+    <!-- Chevron scroll -->
+    <a href="#info" class="chevron" aria-label="Bajar a la información">▼</a>
+
+    <!-- Música (opcional) -->
+    <button class="music-btn" id="musicBtn" aria-label="Reproducir música">♪</button>
+    <audio id="bgm" loop>
+     
+    </audio>
+  </header>
+
+  <main class="wrap">
+    <!-- ====== INFO RÁPIDA ====== -->
+    <section id="info" class="section">
+      <div class="card neon-once">
+        <h2 class="script">Datos clave</h2>
+        <ul class="clean">
           <li><b>Cuándo:</b> Domingo 14 de diciembre</li>
           <li><b>Horario:</b> 12:00 a 04:00 hs</li>
-          <li><b>Dónde:</b> Quincho en Marcos Avellaneda 1125, S. M. de Tucumán</li>
+          <li><b>Dónde:</b> Quincho en Marcos Avellaneda 1125, San Miguel de Tucumán</li>
         </ul>
-
-        <!-- Pills -->
-        <div class="pill-row">
-          <span class="pill">☀️ Almuerzo + Pileta</span>
-          <span class="pill">🌙 Cena + Fiesta</span>
-          <span class="pill">🎶 Música y luces</span>
-        </div>
-
-        <!-- CTAs -->
-        <div class="cta-buttons">
-          <a href="#comprar" class="btn btn-primary">Comprar Tarjeta</a>
-          <a href="#lugar" class="btn btn-outline">Ver ubicación</a>
-        </div>
-
-        <p class="note">* El alcohol lo lleva cada uno.</p>
       </div>
 
-      <!-- La segunda card del hero AHORA SIN NEÓN -->
-      <div class="card">
+      <div class="card glass">
         <h2 class="script center">Cuenta regresiva</h2>
         <div id="timer" class="timer" aria-live="polite"></div>
-        <p class="note center">¡No te quedes afuera! Cupos limitados (≈48).</p>
       </div>
     </section>
 
-    <!-- =============== IDEA =============== -->
-    <section class="section" id="idea">
+    <!-- ====== IDEA + PROGRAMA ====== -->
+    <section class="section">
       <div class="grid-2">
-        <div class="card">
+        <div class="card glass">
           <h2 class="script">La idea</h2>
-          <p class="lead">Cerramos el año con un día completo de equipo, relax y agradecimiento. Asado al mediodía, pileta, sobremesa larga y, por la noche, cena con música y luces.</p>
+          <p class="lead">
+            Cerramos el año con un día completo de equipo, relax y agradecimiento.
+            Asado al mediodía, pileta, sobremesa larga y, por la noche, cena con música y luces.
+          </p>
           <ul class="clean">
-            <li>🤝 Camaradería</li><li>🍖 Asado mediodía + noche</li><li>🏊‍♂️ Pileta</li><li>🎶 Fiesta</li>
+            <li>🤝 Camaradería</li>
+            <li>🍖 Asado mediodía + noche</li>
+            <li>🏊‍♂️ Pileta</li>
+            <li>🎶 Fiesta</li>
           </ul>
         </div>
-        <div class="card">
+        <div class="card glass">
           <h2 class="script">Programa</h2>
           <ul class="clean">
             <li><b>12:00</b> Recepción y almuerzo</li>
@@ -73,9 +78,9 @@
       </div>
     </section>
 
-    <!-- =============== LUGAR =============== -->
+    <!-- ====== LUGAR ====== -->
     <section class="section" id="lugar">
-      <div class="card">
+      <div class="card glass">
         <h2 class="script">Lugar</h2>
         <p class="lead">📍 <b>Marcos Avellaneda 1125, San Miguel de Tucumán</b></p>
         <iframe class="mapa"
@@ -84,22 +89,22 @@
       </div>
     </section>
 
-    <!-- =============== FOTOS =============== -->
+    <!-- ====== FOTOS ====== -->
     <section class="section" id="fotos">
       <h2 class="script">Fotos del lugar</h2>
       <div class="gallery grid-3">
         <img src="images/1.HEIC" alt="Salón 1">
         <img src="images/2.HEIC" alt="Salón 2">
         <img src="images/3.HEIC" alt="Salón 3">
-        <!-- agrega más si querés -->
       </div>
+      <p class="note">Tip: si ves que .HEIC no carga en algunos navegadores, exportalas a .jpg y actualizá las rutas.</p>
     </section>
 
-    <!-- =============== TARJETAS =============== -->
+    <!-- ====== TARJETAS ====== -->
     <section class="section" id="comprar">
       <h2 class="script center">Elegí tu tarjeta</h2>
       <div class="buy-grid">
-        <div class="card buy-card">
+        <div class="card glass buy-card">
           <h3 class="script">🌙 Tarjeta Noche</h3>
           <div class="price">$55.000</div>
           <ul class="clean">
@@ -114,7 +119,7 @@
           </a>
         </div>
 
-        <div class="card buy-card">
+        <div class="card glass buy-card">
           <h3 class="script">☀️ Full Pass</h3>
           <div class="price">$65.000</div>
           <ul class="clean">
@@ -132,9 +137,9 @@
       <p class="note center">* El alcohol lo lleva cada uno.</p>
     </section>
 
-    <!-- =============== FORM LINK =============== -->
+    <!-- ====== FORM ====== -->
     <section class="section center" id="form">
-      <div class="card" style="display:inline-block;max-width:760px;text-align:left">
+      <div class="card glass" style="display:inline-block;max-width:760px;text-align:left">
         <h2 class="script">Confirmar presencia</h2>
         <p class="lead">Completá el formulario para elegir tarjeta, modalidad de pago y subir tu comprobante.</p>
         <div class="cta-buttons">
@@ -146,9 +151,10 @@
         </div>
       </div>
     </section>
+  </main>
 
-    <footer>© 2025 Aeropuerto Tucumán · Organización del Evento</footer>
-  </div>
+  <footer>© 2025 Aeropuerto Tucumán · Organización del Evento</footer>
 
   <script src="app.js"></script>
 </body>
+</html>
