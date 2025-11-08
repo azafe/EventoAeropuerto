@@ -135,3 +135,47 @@ footer{text-align:center;color:#9fb1c8;padding:36px 0}
   h1.script{font-size:44px}
   .grid-2,.grid-3,.buy-grid{grid-template-columns:1fr}
 }
+
+
+/* ===== Secciones estilo “agenda” con icono ===== */
+.icon-card { padding: 26px 18px; }
+
+.icon-emoji{
+  font-size: clamp(48px, 10vw, 72px);
+  line-height: 1;
+  margin-bottom: 10px;
+  opacity: .9;
+}
+
+.section-title{
+  font-family: 'Nunito', system-ui;
+  letter-spacing: .35em;
+  text-indent: .35em; /* compensa el tracking */
+  font-weight: 800;
+  font-size: clamp(18px, 3.4vw, 24px);
+  color: #EAF2FF;
+  margin: 6px 0 4px;
+}
+
+.icon-card .lead{
+  font-size: clamp(16px, 3.2vw, 18px);
+  color: #c6d6ea;
+  margin: 6px auto 14px;
+}
+
+/* Botón fantasma suave como en la referencia */
+.btn-ghost{
+  background: transparent;
+  color: #EAF2FF;
+  border: 1px solid rgba(255,255,255,.18);
+  padding: 12px 18px;
+  border-radius: 999px;
+  transition: background .2s ease, border-color .2s ease;
+}
+.btn-ghost:hover{
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.28);
+}
+
+/* Ajuste visual cuando hay dos botones */
+.icon-card .btn { margin: 4px 6px; }
