@@ -29,3 +29,22 @@ btn.addEventListener('click', async () => {
     else{ audio.pause(); playing = false; btn.textContent = '♪'; }
   }catch(e){ console.log(e); }
 });
+
+// ==== ANIMACIÓN DE FOTOS AL HACER SCROLL ====
+
+document.addEventListener("DOMContentLoaded", () => {
+  const fotos = document.querySelectorAll(".photo-gallery img");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target); // para evitar reanimar al volver
+      }
+    });
+  }, {
+    threshold: 0.2, // activa cuando el 20% del elemento es visible
+  });
+
+  fotos.forEach((foto) => observer.observe(foto));
+});
