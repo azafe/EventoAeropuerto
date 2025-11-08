@@ -1,17 +1,7 @@
-// ================= CONFIG =================
-const CONFIG = {
-  fechaEvento: '2025-12-14T12:00:00-03:00',
-  googleFormURL: 'https://forms.gle/tu-link-aqui'
-};
-
-// Insertar link de formulario
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('linkForm').href = CONFIG.googleFormURL;
-});
-
-// ============== COUNTDOWN ==============
+const CONFIG = { fechaEvento: '2025-12-14T12:00:00-03:00' };
 const timerEl = document.getElementById('timer');
-function pad(n){return String(n).padStart(2,'0')}
+const pad = n => String(n).padStart(2,'0');
+
 function tick(){
   const now = new Date();
   const end = new Date(CONFIG.fechaEvento);
@@ -26,5 +16,4 @@ function tick(){
     <div class="box"><div class="num">${pad(m)}</div><div class="lbl">min</div></div>
     <div class="box"><div class="num">${pad(s)}</div><div class="lbl">seg</div></div>`;
 }
-setInterval(tick, 1000);
-tick();
+setInterval(tick, 1000); tick();

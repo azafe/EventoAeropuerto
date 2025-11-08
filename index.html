@@ -1,147 +1,154 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Evento Fin de Año – Aeropuerto Tucumán 2025</title>
-  <meta name="description" content="Full Pass y Cena · Domingo 14 de diciembre · San Miguel de Tucumán">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Nuevas fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="bg-leaves"></div>
 
-<!-- Fondo animado -->
-<div class="bg-leaves"></div>
-
-<div class="wrap">
-  <!-- HERO -->
-  <section class="hero section" id="hero">
-    <div class="neon-card">
-      <span class="badge">✈️ Aeropuerto Tucumán · Fin de Año 2025</span>
-      <h1>Un día para celebrar juntos 🎉</h1>
-      <p class="lead">
-        Domingo <b>14 de diciembre</b> · <b>12:00 → 04:00</b>  
-        Quincho con pileta – <b>Marcos Avellaneda 1125, San Miguel de Tucumán</b>.
-      </p>
-      <div class="pill-row">
-        <span class="pill">☀️ Almuerzo + Pileta 12–20</span>
-        <span class="pill">🌙 Cena + Fiesta 20–04</span>
-        <span class="pill">🎶 Música y luces (noche)</span>
-        <span class="pill">🥤 Bebidas sin alcohol incluidas</span>
-      </div>
-      <div class="cta-buttons">
-        <a href="#comprar" class="btn btn-primary">Ver tarjetas</a>
-        <a href="#form" class="btn btn-outline">Confirmar presencia</a>
-      </div>
-      <p class="note">* LLevar las bebidas alcoholicas a consumir</p>
-    </div>
-
-    <div class="neon-card">
-      <h2 class="center">Cuenta regresiva</h2>
-      <div id="timer" class="timer"></div>
-      <p class="note center">¡No te quedes afuera! Cupos limitados (≈48).</p>
-    </div>
-  </section>
-
-  <!-- IDEA -->
-  <section class="section" id="idea">
-    <div class="grid-2">
+  <div class="wrap">
+    <!-- =============== HERO =============== -->
+    <section class="hero section" id="hero">
+      <!-- ÚNICA con neón -->
       <div class="neon-card">
-        <h2>La idea</h2>
+        <span class="badge">✈️ Aeropuerto Tucumán • Fin de Año 2025</span>
+        <h1 class="script">Un día para celebrar juntos</h1>
         <p class="lead">
-          Cerramos el año con un día completo de equipo, relax y agradecimiento.  
+          Cerramos el año con un día completo de equipo, relax y agradecimiento.
           Asado al mediodía, pileta, sobremesa larga y, por la noche, cena con música y luces.
         </p>
-        <ul class="clean">
-          <li>🤝 Fortalecer la camaradería</li>
-          <li>🍖 Asado mediodía + noche</li>
-          <li>🏊‍♂️ Pileta durante el día</li>
-          <li>🎶 Fiesta nocturna</li>
-        </ul>
-      </div>
-      <div class="neon-card">
-        <h2>Programa</h2>
-        <ul class="clean">
-          <li><b>12:00</b> Recepción y almuerzo</li>
-          <li><b>15:00</b> Pileta y descanso</li>
-          <li><b>20:00</b> Cena principal</li>
-          <li><b>22:30</b> Brindis y música</li>
-          <li><b>04:00</b> Cierre</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <!-- LUGAR -->
-  <section class="section" id="lugar">
-    <div class="neon-card">
-      <h2>Lugar</h2>
-      <p class="lead">
-        📍 <b>Marcos Avellaneda 1125, San Miguel de Tucumán</b>  
-        Quincho con pileta, asador, espacio amplio y estacionamiento.
-      </p>
-      <iframe
-        class="mapa"
-        src="https://maps.google.com/maps?q=Marcos%20Avellaneda%201125%20San%20Miguel%20de%20Tucum%C3%A1n&t=&z=15&ie=UTF8&iwloc=&output=embed"
-        loading="lazy">
-      </iframe>
-    </div>
-  </section>
+        <!-- Datos clave -->
+        <ul class="clean" style="margin-top:6px">
+          <li><b>Cuándo:</b> Domingo 14 de diciembre</li>
+          <li><b>Horario:</b> 12:00 a 04:00 hs</li>
+          <li><b>Dónde:</b> Quincho en Marcos Avellaneda 1125, S. M. de Tucumán</li>
+        </ul>
 
-  <!-- FOTOS -->
- <!-- FOTOS -->
-<section class="section" id="fotos">
-  <h2>Fotos del lugar</h2>
-  <div class="gallery grid-3">
-    <img src="images/1.HEIC" alt="Salón principal – vista 1">
-    <img src="images/2.HEIC" alt="Salón principal – vista 2">
-    <img src="images/3.HEIC" alt="Pileta y quincho – vista 3">
-    <img src="images/4.HEIC" alt="Vista 4 del salón">
-    <img src="images/5.HEIC" alt="Vista 5 del salón">
-    <img src="images/6.HEIC" alt="Vista 6 del salón">
-    <img src="images/7.HEIC" alt="Vista 7 del salón">
-    <img src="images/8.HEIC" alt="Vista 8 del salón">
+        <!-- Pills -->
+        <div class="pill-row">
+          <span class="pill">☀️ Almuerzo + Pileta</span>
+          <span class="pill">🌙 Cena + Fiesta</span>
+          <span class="pill">🎶 Música y luces</span>
+        </div>
+
+        <!-- CTAs -->
+        <div class="cta-buttons">
+          <a href="#comprar" class="btn btn-primary">Comprar Tarjeta</a>
+          <a href="#lugar" class="btn btn-outline">Ver ubicación</a>
+        </div>
+
+        <p class="note">* El alcohol lo lleva cada uno.</p>
+      </div>
+
+      <!-- La segunda card del hero AHORA SIN NEÓN -->
+      <div class="card">
+        <h2 class="script center">Cuenta regresiva</h2>
+        <div id="timer" class="timer" aria-live="polite"></div>
+        <p class="note center">¡No te quedes afuera! Cupos limitados (≈48).</p>
+      </div>
+    </section>
+
+    <!-- =============== IDEA =============== -->
+    <section class="section" id="idea">
+      <div class="grid-2">
+        <div class="card">
+          <h2 class="script">La idea</h2>
+          <p class="lead">Cerramos el año con un día completo de equipo, relax y agradecimiento. Asado al mediodía, pileta, sobremesa larga y, por la noche, cena con música y luces.</p>
+          <ul class="clean">
+            <li>🤝 Camaradería</li><li>🍖 Asado mediodía + noche</li><li>🏊‍♂️ Pileta</li><li>🎶 Fiesta</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2 class="script">Programa</h2>
+          <ul class="clean">
+            <li><b>12:00</b> Recepción y almuerzo</li>
+            <li><b>15:00</b> Pileta y descanso</li>
+            <li><b>20:00</b> Cena principal</li>
+            <li><b>22:30</b> Brindis y música</li>
+            <li><b>04:00</b> Cierre</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== LUGAR =============== -->
+    <section class="section" id="lugar">
+      <div class="card">
+        <h2 class="script">Lugar</h2>
+        <p class="lead">📍 <b>Marcos Avellaneda 1125, San Miguel de Tucumán</b></p>
+        <iframe class="mapa"
+          src="https://maps.google.com/maps?q=Marcos%20Avellaneda%201125%20San%20Miguel%20de%20Tucum%C3%A1n&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- =============== FOTOS =============== -->
+    <section class="section" id="fotos">
+      <h2 class="script">Fotos del lugar</h2>
+      <div class="gallery grid-3">
+        <img src="images/1.HEIC" alt="Salón 1">
+        <img src="images/2.HEIC" alt="Salón 2">
+        <img src="images/3.HEIC" alt="Salón 3">
+        <!-- agrega más si querés -->
+      </div>
+    </section>
+
+    <!-- =============== TARJETAS =============== -->
+    <section class="section" id="comprar">
+      <h2 class="script center">Elegí tu tarjeta</h2>
+      <div class="buy-grid">
+        <div class="card buy-card">
+          <h3 class="script">🌙 Tarjeta Noche</h3>
+          <div class="price">$55.000</div>
+          <ul class="clean">
+            <li>🍖 Asado + ensaladas</li>
+            <li>🍮 Postre</li>
+            <li>🥤 Bebidas sin alcohol</li>
+            <li>🎶 Música y luces</li>
+          </ul>
+          <a class="btn btn-primary" target="_blank" rel="noopener"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSfWE52CjsRZmHsUFqirzqL0tHlfIKmvZOsJokxjuitqI1ZtSQ/viewform">
+             Comprar Tarjeta Noche
+          </a>
+        </div>
+
+        <div class="card buy-card">
+          <h3 class="script">☀️ Full Pass</h3>
+          <div class="price">$65.000</div>
+          <ul class="clean">
+            <li>🏊‍♂️ Pileta todo el día</li>
+            <li>🍖 Almuerzo + 🍖 Cena</li>
+            <li>🥤 Bebidas sin alcohol + postres</li>
+            <li>🎶 Música nocturna</li>
+          </ul>
+          <a class="btn btn-primary" target="_blank" rel="noopener"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSfWE52CjsRZmHsUFqirzqL0tHlfIKmvZOsJokxjuitqI1ZtSQ/viewform">
+             Comprar Full Pass
+          </a>
+        </div>
+      </div>
+      <p class="note center">* El alcohol lo lleva cada uno.</p>
+    </section>
+
+    <!-- =============== FORM LINK =============== -->
+    <section class="section center" id="form">
+      <div class="card" style="display:inline-block;max-width:760px;text-align:left">
+        <h2 class="script">Confirmar presencia</h2>
+        <p class="lead">Completá el formulario para elegir tarjeta, modalidad de pago y subir tu comprobante.</p>
+        <div class="cta-buttons">
+          <a class="btn btn-primary" target="_blank" rel="noopener"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSfWE52CjsRZmHsUFqirzqL0tHlfIKmvZOsJokxjuitqI1ZtSQ/viewform">
+             Ir al Google Form
+          </a>
+          <a href="#comprar" class="btn btn-outline">Volver a tarjetas</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2025 Aeropuerto Tucumán · Organización del Evento</footer>
   </div>
-</section>
 
-  <!-- TARJETAS -->
-  <section class="section" id="comprar">
-    <h2 class="center">Compra tu tarjeta</h2>
-    <div class="buy-grid">
-      <div class="neon-card buy-card">
-        <h3>🌙 Tarjeta Noche</h3>
-        <div class="price">$55.000</div>
-        <ul class="clean">
-          <li>🍖 Cena + ensaladas</li>
-          <li>🍮 Postre</li>
-          <li>🥤 Bebidas sin alcohol</li>
-          <li>🎶 Música y luces</li>
-        </ul>
-        <a href="#form" class="btn btn-primary">Comprar Tarjeta</a>
-      </div>
-      <div class="neon-card buy-card">
-        <h3>☀️ Full Pass</h3>
-        <div class="price">$65.000</div>
-        <ul class="clean">
-          <li>🏊‍♂️ Pileta todo el día</li>
-          <li>🍖 Almuerzo + 🍖 Cena</li>
-          <li>🥤 Bebidas sin alcohol + postres</li>
-          <li>🎶 Música nocturna</li>
-        </ul>
-        <a href="#form" class="btn btn-primary">Comprar Tarjeta</a>
-      </div>
-    </div>
-    <p class="note center">* El alcohol lo lleva cada uno.</p>
-  </section>
-
-
-
-  <!-- FOOTER -->
-  <footer>
-    © 2025 Aeropuerto Tucumán · Organización del Evento
-  </footer>
-</div>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
-</html>
