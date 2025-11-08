@@ -225,12 +225,12 @@ footer{text-align:center;color:#9fb1c8;padding:36px 0}
 body {
   margin: 0;
   padding: 0;
-  background-image: url('images/fondo.png');
+  background-image: url("images/fondo.png");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* efecto parallax */
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  color: #fff; /* texto blanco para resaltar sobre fondo oscuro */
+  color: #fff;
   font-family: 'Poppins', sans-serif;
 }
 
