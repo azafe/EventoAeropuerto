@@ -183,10 +183,10 @@ footer{text-align:center;color:#9fb1c8;padding:36px 0}
 /* ====== Galería tipo agenda-la-fecha ====== */
 .photo-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(2, 1fr); /* ✅ 2 columnas en celular */
+  gap: 10px;
   padding: 20px;
-  max-width: 960px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -195,29 +195,29 @@ footer{text-align:center;color:#9fb1c8;padding:36px 0}
   height: auto;
   border-radius: 14px;
   object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.photo-gallery img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
-}
-
-@media (min-width: 768px) {
-  .photo-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 16px;
-  }
-}
-
-/* ==== ANIMACIÓN DE ENTRADA DE FOTOS ==== */
-.photo-gallery img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
+/* Animación cuando aparecen */
 .photo-gallery img.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Hover en pantallas grandes */
+@media (hover: hover) {
+  .photo-gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ✅ En tablets y PC aumenta la cantidad de columnas */
+@media (min-width: 768px) {
+  .photo-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+  }
 }
