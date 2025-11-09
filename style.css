@@ -5,76 +5,36 @@
 *{box-sizing:border-box} html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font-family:'Nunito',system-ui}
 
-/* ===== Texto en arco simple ===== */
-.curved-text {
-  display: inline-block;
+
+
+
+/* ===== Tipos hero ===== */
+.hero-line1{
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(40px, 9vw, 80px);
-  color: #fff;
-  text-align: center;
-  transform: rotate(-2deg);
-  letter-spacing: 2px;
-  position: relative;
-  padding-top: 50px;
-}
-
-.curved-text::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 260px;
-  height: 130px;
-  border: 1px solid transparent;
-  border-top-color: transparent;
-  border-radius: 50% 50% 0 0;
-  transform: translateX(-50%) scaleX(1.3);
-  pointer-events: none;
-}
-
-/* curva visual */
-.curved-text span {
-  display: inline-block;
-  transform-origin: bottom center;
-}
-
-
-/* ===== Estilo del hero minimal tipo “boda” ===== */
-.big-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(48px, 10vw, 92px);
   font-weight: 400;
-  color: #fff;
-  margin: 0;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  font-size: clamp(34px, 8vw, 72px);
+  line-height: 1.1;
+  margin: 0 0 .25rem 0;
+  text-shadow: 0 6px 28px rgba(0,0,0,.45);
 }
-
-.subtitle {
-  font-family: 'Nunito', sans-serif;
-  font-size: clamp(20px, 4vw, 32px);
-  letter-spacing: 1px;
-  color: rgba(255,255,255,0.9);
-  text-transform: uppercase;
-  margin-top: 8px;
+.hero-line2{
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  font-size: clamp(42px, 10vw, 92px);
+  line-height: 1;
+  margin: 0 0 .35rem 0;
+  text-shadow: 0 6px 28px rgba(0,0,0,.45);
+}
+.hero-line3{
+  font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+  font-weight: 800;
+  letter-spacing: .08em;
+  font-size: clamp(14px, 3.6vw, 22px);
+  margin: 0;
 }
 
 /* ===== HERO SECTION ===== */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100dvh;
-  background-image: url("images/HeroPileta.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-align: center;
-  overflow: hidden;
-}
+
 
 /* Overlay para contraste de texto */
 .hero::before {
@@ -124,16 +84,55 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:'Nunito',system
   .hero-subtitle { font-size: 1rem; }
 }
 
-.chevron {
+/* ===== Flecha scroll ===== */
+.chevron{
   position: absolute;
-  bottom: 24px;
-  left: 50%;
+  bottom: 22px; left: 50%;
   transform: translateX(-50%);
-  font-size: 28px;
+  z-index: 3;
+  width: 44px; height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.28);
+  background: rgba(0,0,0,.28);
   color: #fff;
-  text-decoration: none;
-  opacity: 0.8;
+  display: grid; place-items: center;
+  font-size: 22px; line-height: 1;
+  backdrop-filter: blur(6px) saturate(130%);
+  -webkit-backdrop-filter: blur(6px) saturate(130%);
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  animation: chevron-bounce 2s infinite;
 }
+.chevron:hover{ transform: translateX(-50%) translateY(2px); box-shadow: 0 0 18px rgba(160,90,255,.35); }
+@keyframes chevron-bounce{ 0%,100%{ transform:translateX(-50%) } 50%{ transform:translateX(-50%) translateY(6px) } }
+
+/* ===== Fondo general con imagen (robusto para iOS/Netlify) ===== */
+/* IMPORTANTE: coloca fondo.png dentro de /images/ para path consistente */
+body{
+  background-color: #060E14;
+}
+
+/* Truco fijo: pseudo con z-index negativo evita problemas de background-attachment en iOS */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url('images/fondo.png') center top / cover no-repeat;
+  opacity: .22;          /* ajusta intensidad del fondo */
+  pointer-events: none;  /* no bloquea clics */
+}
+
+/* Hero (tus estilos existentes + overlay ya definidos) */
+.hero{
+  position: relative; width: 100%; height: 100dvh;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; color: #fff; overflow: hidden;
+}
+.hero-overlay{ position:absolute; inset:0; background:rgba(0,0,0,.35); z-index:1; }
+.hero-content{ position:relative; z-index:2; padding:0 1rem; }
+
 /* ===== Botón de música ===== */
 .music-btn{
   position: fixed;

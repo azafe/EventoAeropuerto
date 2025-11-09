@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
     <link rel="preload" as="image" href="images/HeroPileta.jpg">
+    <link rel="preload" as="image" href="images/fondo.png">
+
 
 </head>
 <body>
@@ -19,12 +21,13 @@
 
   <!-- Contenedor del texto central -->
   <div class="hero-content">
-    <h1 class="hero-title">Fiesta de Fin de Año<br><span>2025</span></h1>
-    <h2 class="hero-subtitle">AEROPUERTO TUCUMÁN</h2>
+    <h1 class="hero-line1">Fiesta de Fin de Año</h1>
+    <h2 class="hero-line2">2025</h2>
+    <h3 class="hero-line3">AEROPUERTO TUCUMÁN</h3>
   </div>
 
-    <!-- Chevron scroll -->
-    <a href="#info" class="chevron" aria-label="Bajar a la información">▼</a>
+  <!-- Flecha: ahora es botón para evitar overlays que bloqueen clics -->
+  <button type="button" id="goInfo" class="chevron" aria-label="Bajar a la información">▾</button>
 
     <!-- Botón música -->
 <button class="music-btn" id="musicToggle" aria-label="Reproducir música" title="Música">

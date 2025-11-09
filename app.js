@@ -147,3 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
     items.forEach((it) => io.observe(it));
   })();
 });
+
+
+// Scroll de flecha al bloque #info (ajusta el id si usas otro)
+document.getElementById('goInfo')?.addEventListener('click', () => {
+  const target = document.querySelector('#info') || document.body;
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
