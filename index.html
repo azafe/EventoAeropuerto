@@ -24,11 +24,16 @@
     <!-- Chevron scroll -->
     <a href="#info" class="chevron" aria-label="Bajar a la información">▼</a>
 
-    <!-- Música (opcional) -->
-    <button class="music-btn" id="musicBtn" aria-label="Reproducir música">♪</button>
-    <audio id="bgm" loop>
-     
-    </audio>
+    <!-- Botón música -->
+<button class="music-btn" id="musicToggle" aria-label="Reproducir música" title="Música">
+  <span class="note">♪</span>
+</button>
+
+<!-- Reproductor oculto -->
+<audio id="bgMusic" preload="auto" loop playsinline>
+  <source src="./audio/paranoid.mp3" type="audio/mpeg">
+  <!-- <source src="audio/tema.ogg" type="audio/ogg">  opcional -->
+</audio>
   </header>
 
   <main class="wrap">
@@ -75,20 +80,70 @@
 </section>
 
     <!-- ====== IDEA + PROGRAMA ====== -->
-    <section class="section">
-      <div class="grid-2">
-        <div class="card glass">
-          <h2 class="script">Programa</h2>
-          <ul class="clean">
-            <li><b>Mediodía</b> Recepción y almuerzo</li>
-            <li><b>Siesta/Tarde</b> Pileta y Juegos</li>
-            <li><b>22:00</b> Cena principal</li>
-            <li><b>22:30</b> Brindis y Fiesta</li>
-            <li><b>04:00</b> Cierre</li>
-          </ul>
+   <section class="section" id="programa">
+  <div class="icon-card glass">
+    <div class="icon-emoji" aria-hidden="true">🕒</div>
+    <h2 class="section-title">PROGRAMA</h2>
+    <p class="hint">Horarios orientativos</p>
+  </div>
+
+  <ol class="timeline">
+    <li class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-card">
+        <div class="t-head">
+          <span class="t-range">Mediodía</span>
+          <span class="t-chip">Recepción &amp; Almuerzo</span>
         </div>
+        <p class="t-text">Asado, ensaladas y primer brindis. ¡Traje de baño listo! 🏊‍♂️</p>
       </div>
-    </section>
+    </li>
+
+    <li class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-card">
+        <div class="t-head">
+          <span class="t-range">Siesta / Tarde</span>
+          <span class="t-chip">Pileta &amp; Juegos</span>
+        </div>
+        <p class="t-text">Mates, sobremesa larga, música tranqui y juegos.</p>
+      </div>
+    </li>
+
+    <li class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-card">
+        <div class="t-head">
+          <span class="t-range">Noche</span>
+          <span class="t-chip">Cena Principal</span>
+        </div>
+        <p class="t-text">Servimos la cena. Bebidas sin alcohol incluidas (alcohol: cada uno).</p>
+      </div>
+    </li>
+
+    <li class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-card">
+        <div class="t-head">
+          <span class="t-range">Luego</span>
+          <span class="t-chip">Brindis &amp; Fiesta</span>
+        </div>
+        <p class="t-text">Brindis, DJ y pista. Fotos grupales y sorpresas. 🥂🎶</p>
+      </div>
+    </li>
+
+    <li class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-card">
+        <div class="t-head">
+          <span class="t-range">Cierre</span>
+          <span class="t-chip">Vuelta a casa</span>
+        </div>
+        <p class="t-text">Cierre orientativo alrededor de las 04:00.</p>
+      </div>
+    </li>
+  </ol>
+</section>
 
     <!-- ====== FOTOS ====== -->
     <!-- ====== SECCIÓN FOTOS ====== -->
@@ -114,46 +169,70 @@
 </section>
 
     <!-- ====== TARJETAS ====== -->
-    <section class="section" id="comprar">
-      <h2 class="script center">Elegí tu tarjeta</h2>
-      <div class="buy-grid">
-        <div class="card glass buy-card">
-          <h3 class="script">🌙 Tarjeta Noche</h3>
-          <div class="price">$55.000</div>
-          <ul class="clean">
-            <li>🍖 Asado + ensaladas</li>
-            <li>🍮 Postre</li>
-            <li>🥤 Bebidas sin alcohol</li>
-            <li>🎶 Música y luces</li>
-          </ul>
-          <a class="btn btn-primary" target="_blank" rel="noopener"
-             href="https://docs.google.com/forms/d/e/1FAIpQLSfWE52CjsRZmHsUFqirzqL0tHlfIKmvZOsJokxjuitqI1ZtSQ/viewform">
-             Comprar Tarjeta Noche
-          </a>
-        </div>
+    <section class="section" id="tarjetas">
+  <h2 class="section-title">Elegí tu tarjeta</h2>
 
-        <div class="card glass buy-card">
-          <h3 class="script">☀️ Full Pass</h3>
-          <div class="price">$65.000</div>
-          <ul class="clean">
-            <li>🏊‍♂️ Pileta todo el día</li>
-            <li>🍖 Almuerzo + 🍖 Cena</li>
-            <li>🥤 Bebidas sin alcohol + postres</li>
-            <li>🎶 Música nocturna</li>
-          </ul>
-          <a class="btn btn-primary" target="_blank" rel="noopener"
-             href="https://docs.google.com/forms/d/e/1FAIpQLSfWE52CjsRZmHsUFqirzqL0tHlfIKmvZOsJokxjuitqI1ZtSQ/viewform">
-             Comprar Full Pass
-          </a>
-        </div>
+  <div class="cards-container">
+    <!-- TARJETA NOCHE -->
+    <div class="card-pass">
+      <div class="card-header">
+        <span class="emoji">🌙</span>
+        <h3>Tarjeta Noche</h3>
       </div>
-      <p class="note center">* El alcohol lo lleva cada uno.</p>
-    </section>
+      <div class="card-price">$55.000</div>
+      <ul class="card-benefits">
+        <li>🍗 Asado + ensaladas</li>
+        <li>🍰 Postre</li>
+        <li>🥤 Bebidas sin alcohol</li>
+        <li>🎶 Fiesta con Dj</li>
+      </ul>
+      <a 
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfWE52CjsRZmHsUFqirzqL0tHlfIKmvZOsJokxjuitqI1ZtSQ/viewform" 
+        class="btn-buy" 
+        target="_blank" 
+        rel="noopener noreferrer">
+        Comprar Tarjeta Noche
+      </a>
+    </div>
+
+    <!-- FULL PASS -->
+    <div class="card-pass">
+      <div class="card-header">
+        <span class="emoji">🌞</span>
+        <h3>Full Pass</h3>
+      </div>
+      <div class="card-price">$65.000</div>
+      <ul class="card-benefits">
+        <li>🍽️ Almuerzo al mediodía</li>
+        <li>🏊‍♂️ Pileta todo el día</li>
+                <li>✨ Todo lo que incluye la Tarjeta Noche</li>
+
+      </ul>
+      <a 
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfWE52CjsRZmHsUFqirzqL0tHlfIKmvZOsJokxjuitqI1ZtSQ/viewform" 
+        class="btn-buy" 
+        target="_blank" 
+        rel="noopener noreferrer">
+        Comprar Full Pass
+      </a>
+    </div>
+  </div>
+
+  <p class="card-note">* El alcohol lo lleva cada uno.</p>
+</section>
 
     
   </main>
 
-  <footer>© 2025 Aeropuerto Tucumán · Organización del Evento</footer>
+  <footer class="footer">
+  <div class="footer-content">
+    <p class="footer-title">🌴 Fiesta de Fin de Año · Aeropuerto Tucumán</p>
+    
+   
+
+    <p class="footer-note">Gracias por ser parte ✈️ Nos vemos el 14 de diciembre 🎉</p>
+  </div>
+</footer>
 
   <script src="app.js"></script>
 </body>

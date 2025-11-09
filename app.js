@@ -48,3 +48,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fotos.forEach((foto) => observer.observe(foto));
 });
+
+// Aparecer del timeline al hacer scroll
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.timeline .t-item');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('appear');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  items.forEach(i => obs.observe(i));
+});
+
+// ===== CONTROL DE MÚSICA DE FONDO =====
+document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("bgMusic");
+  const btn = document.getElementById("musicToggle");
+
+  // Si no existe alguno de los elementos, salir
+  if (!audio || !btn) {
+    console.warn("No se encontró el elemento de audio o el botón de música.");
+    return;
+  }
+
+  // Configuración inicial
+  audio.volume = 0;
+  const targetVolume = 0.6;
+  const fadeTime = 800;
+
+  // Función para hacer fundido de volumen
+  function fadeTo(vol, ms) {
+    const start = audio.volume;
+    const diff = vol - start;
+    const steps = Math.max(10, Math.round(ms / 20));
+    let i = 0;
+    const t = setInterval(() => {
+      i++;
+      audio.volume = Math.min(1, Math.max(0, start + diff * (i / steps)));
+      if (i >= steps) clearInterval(t);
+    }, ms / steps);
+  }
+
+  // Reproducir música
+  async function playMusic() {
+    try {
+      // Algunos navegadores (iOS) requieren interacción previa
+      await audio.play();
+      btn.classList.add("playing");
+      fadeTo(targetVolume, fadeTime);
+      localStorage.setItem("musicState", "on");
+    } catch (e) {
+      console.warn("El navegador bloqueó el autoplay. Se activará al primer tap.");
+      document.addEventListener("click", playMusic, { once: true });
+    }
+  }
+
+  // Pausar música
+  function pauseMusic() {
+    fadeTo(0, 300);
+    setTimeout(() => audio.pause(), 320);
+    btn.classList.remove("playing");
+    localStorage.setItem("musicState", "off");
+  }
+
+  // Alternar estado
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (audio.paused) {
+      playMusic();
+    } else {
+      pauseMusic();
+    }
+  });
+
+  // Restaurar estado anterior (si el usuario ya la había activado antes)
+  const lastState = localStorage.getItem("musicState");
+  if (lastState === "on") {
+    document.addEventListener("click", playMusic, { once: true });
+  }
+});
