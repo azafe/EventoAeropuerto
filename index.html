@@ -8,18 +8,20 @@
   <!-- Fuentes: cursiva elegante + legible -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+    <link rel="preload" as="image" href="images/HeroPileta.jpg">
+
 </head>
 <body>
 
   <!-- ====== HERO FULL ====== -->
-  <header id="hero" class="hero">
+<header class="hero" id="hero" style="background-image: url('images/HeroPileta.jpg');">
     <div class="hero-overlay"></div>
 
-    <!-- Texto principal -->
-    <div class="hero-inner">
-  <h1 class="script big-title">Fiesta de Fin de Año 2025</h1>
-  <h2 class="script subtitle">Aeropuerto Tucumán</h2>
-</div>
+  <!-- Contenedor del texto central -->
+  <div class="hero-content">
+    <h1 class="hero-title">Fiesta de Fin de Año<br><span>2025</span></h1>
+    <h2 class="hero-subtitle">AEROPUERTO TUCUMÁN</h2>
+  </div>
 
     <!-- Chevron scroll -->
     <a href="#info" class="chevron" aria-label="Bajar a la información">▼</a>
