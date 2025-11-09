@@ -1,6 +1,9 @@
 :root{
   --text:#EAF2FF; --muted:#b9c6da; --bg:#060E14;
   --accent:#00E0A4; --border:#183041; --w:1120px;
+  /* ancho objetivo del PNG del fondo, responsivo */
+  --bgW: clamp(900px, 120vw, 1800px);
+  --bgY: -8vh;  /* levanta un poco el fondo para que se vean las hojas superiores */
 }
 *{box-sizing:border-box} html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font-family:'Nunito',system-ui}
@@ -118,9 +121,24 @@ body::before{
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: url('images/fondo.png') center top / cover no-repeat;
-  opacity: .22;          /* ajusta intensidad del fondo */
-  pointer-events: none;  /* no bloquea clics */
+  pointer-events: none;
+
+  background-image: url('images/fondo.png');  /* Asegurate: /images/fondo.png */
+  background-repeat: no-repeat;
+  background-position: center var(--bgY);
+  background-size: var(--bgW) auto;           /* <- clave: no "cover" */
+  opacity: .22;                                /* intensidad del fondo */
+}
+
+/* Pantallas más anchas / landscape / desktop */
+@media (min-aspect-ratio: 3/4){
+  :root{ --bgW: clamp(1200px, 100vw, 2000px); --bgY: 0vh; }
+  body::before{ background-position: center top; }
+}
+
+/* iOS (alto muy grande): bajá un poco el zoom extra */
+@media (max-width: 420px) and (min-height: 780px){
+  :root{ --bgW: clamp(980px, 115vw, 1650px); --bgY: -6vh; }
 }
 
 /* Hero (tus estilos existentes + overlay ya definidos) */
