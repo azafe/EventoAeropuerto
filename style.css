@@ -615,3 +615,68 @@ a:hover, button:hover {
   background: linear-gradient(90deg, #a64cff, #5fffe6);
   box-shadow: 0 0 10px #5fffe6;
 }
+
+/* ===== LIGHTBOX mejorado ===== */
+.lightbox{
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,.88);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity .3s ease;
+}
+.lightbox.show{ opacity:1; pointer-events:auto; }
+
+.lightbox-img{
+  max-width: 92vw; max-height: 90vh; object-fit: contain;
+  border-radius: 12px; box-shadow: 0 0 40px rgba(0,0,0,.6);
+  animation: lbIn .25s ease;
+}
+@keyframes lbIn{ from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)} }
+
+.lightbox .close{
+  position:absolute; top:22px; right:26px;
+  font-size:40px; color:#fff; cursor:pointer;
+  text-shadow: 0 0 10px rgba(255,255,255,.6);
+  background:none; border:none;
+}
+
+.lightbox .nav{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:48px; height:48px; border-radius:50%;
+  border:1px solid rgba(255,255,255,.25);
+  color:#fff; background:rgba(0,0,0,.35);
+  display:grid; place-items:center; font-size:32px; line-height:1;
+  backdrop-filter: blur(6px) saturate(140%);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+  cursor:pointer; transition: transform .15s ease, box-shadow .15s ease;
+}
+.lightbox .nav:hover{ transform:translateY(-50%) scale(1.06); box-shadow:0 0 18px rgba(160,90,255,.35) }
+.lightbox .prev{ left:16px; }
+.lightbox .next{ right:16px; }
+
+.lightbox .counter{
+  position:absolute; bottom:18px; left:50%; transform:translateX(-50%);
+  color:#fff; font-weight:700; letter-spacing:.04em;
+  background: rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.18);
+  padding:6px 10px; border-radius:999px; font-size:.9rem;
+}
+
+/* Bloquear scroll del body al abrir */
+html.no-scroll, body.no-scroll{ overflow:hidden; }
+
+.important-note {
+  background: linear-gradient(90deg, rgba(166,76,255,0.25), rgba(95,255,230,0.25));
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 14px;
+  padding: 1rem 1.5rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.05rem;
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  box-shadow: 0 0 20px rgba(140,50,255,0.25);
+}
+.important-note strong {
+  color: #00ffcc;
+}

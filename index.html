@@ -43,7 +43,7 @@
 
   <main class="wrap">
     <!-- ====== INFO RÁPIDA ====== -->
-    <section id="info" class="section">
+    <section id="info" class="">
 
       <div class="card glass">
         <h2 class="script center">Cuenta regresiva</h2>
@@ -87,7 +87,6 @@
     <!-- ====== IDEA + PROGRAMA ====== -->
    <section class="section" id="programa">
   <div class="icon-card glass">
-    <div class="icon-emoji" aria-hidden="true">🕒</div>
     <h2 class="section-title">PROGRAMA</h2>
     <p class="hint">Horarios orientativos</p>
   </div>
@@ -173,6 +172,7 @@
   </div>
 </section>
 
+
     <!-- ====== TARJETAS ====== -->
     <section class="section" id="tarjetas">
   <h2 class="section-title">Elegí tu tarjeta</h2>
@@ -226,7 +226,14 @@
   <p class="card-note">* El alcohol lo lleva cada uno.</p>
 </section>
 
+<div class="important-note">
+  <p>
+    ⚠️ Es importante confirmar tu presencia transfiriendo <strong>la mitad del valor de la tarjeta</strong> 
+    antes del <strong>viernes 14 de noviembre</strong>.
+  </p>
+</div>
     
+
   </main>
 
   <footer class="footer">
@@ -238,6 +245,95 @@
     <p class="footer-note">Gracias por ser parte ✈️ Nos vemos el 14 de diciembre 🎉</p>
   </div>
 </footer>
+<!-- ====== LIGHTBOX ====== -->
+<!-- ===== LIGHTBOX con navegación ===== -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="nav prev" aria-label="Foto anterior">‹</button>
+  <img class="lightbox-img" src="" alt="Foto ampliada">
+  <button class="nav next" aria-label="Foto siguiente">›</button>
+  <button class="close" aria-label="Cerrar">×</button>
+  <div class="counter" id="lbCounter"></div>
+</div>
+
+<script>
+  // ===== Lightbox con navegación + teclado + swipe =====
+  const lightbox   = document.getElementById('lightbox');
+  const lightImg   = lightbox.querySelector('.lightbox-img');
+  const btnClose   = lightbox.querySelector('.close');
+  const btnPrev    = lightbox.querySelector('.prev');
+  const btnNext    = lightbox.querySelector('.next');
+  const counterEl  = document.getElementById('lbCounter');
+  const thumbs     = document.querySelectorAll('.photo-gallery img');
+
+  let idx = 0;
+
+  function srcFor(i){
+    // opcional: si querés usar una versión HD poné data-full en las miniaturas
+    return thumbs[i].getAttribute('data-full') || thumbs[i].src;
+  }
+
+  function preload(i){
+    if(i < 0 || i >= thumbs.length) return;
+    const img = new Image();
+    img.src = srcFor(i);
+  }
+
+  function update(){
+    lightImg.src = srcFor(idx);
+    counterEl.textContent = `${idx+1} / ${thumbs.length}`;
+    preload(idx+1);
+    preload(idx-1);
+  }
+
+  function openAt(i){
+    idx = i;
+    update();
+    lightbox.classList.add('show');
+    document.documentElement.classList.add('no-scroll');
+    document.body.classList.add('no-scroll');
+  }
+
+  function closeLB(){
+    lightbox.classList.remove('show');
+    document.documentElement.classList.remove('no-scroll');
+    document.body.classList.remove('no-scroll');
+  }
+
+  function next(){ idx = (idx+1) % thumbs.length; update(); }
+  function prev(){ idx = (idx-1+thumbs.length) % thumbs.length; update(); }
+
+  thumbs.forEach((img, i) => {
+    img.addEventListener('click', () => openAt(i));
+  });
+
+  btnClose.addEventListener('click', closeLB);
+  btnNext.addEventListener('click', e => { e.stopPropagation(); next(); });
+  btnPrev.addEventListener('click', e => { e.stopPropagation(); prev(); });
+
+  // Cerrar tocando el fondo
+  lightbox.addEventListener('click', e => { if(e.target === lightbox) closeLB(); });
+
+  // Navegación con teclado
+  document.addEventListener('keydown', e => {
+    if(!lightbox.classList.contains('show')) return;
+    if(e.key === 'Escape') closeLB();
+    if(e.key === 'ArrowRight') next();
+    if(e.key === 'ArrowLeft') prev();
+  });
+
+  // Swipe táctil (iOS/Android)
+  let startX = null;
+  const SWIPE = 40; // px mínimos
+  lightbox.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+  lightbox.addEventListener('touchend', e => {
+    if(startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx) > SWIPE){
+      dx < 0 ? next() : prev();
+    }
+    startX = null;
+  }, {passive:true});
+</script>
 
   <script src="app.js"></script>
 </body>
