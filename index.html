@@ -54,7 +54,41 @@
         <div id="timer" class="timer" aria-live="polite"></div>
       </div>
     </section>
+ <!-- ===== PERSONAS QUE VAN (conectado a Google Sheets) ===== -->
+    <section class="section" id="asistentes">
+      <div class="icon-card glass center">
+        <div class="icon-emoji" aria-hidden="true">👥</div>
+        <h2 class="section-title">Personas que van</h2>
+        <p class="lead">
+          Lista generada automáticamente según las tarjetas confirmadas.
+        </p>
+      </div>
 
+      <!-- KPIs pequeños de asistentes -->
+      <div class="attendees-summary">
+        <div class="att-kpi">
+          <span class="att-kpi-label">Total de personas</span>
+          <span class="att-kpi-value" id="att-total">0</span>
+        </div>
+        <div class="att-kpi">
+          <span class="att-kpi-label">Full Pass</span>
+          <span class="att-kpi-value" id="att-full">0</span>
+        </div>
+        <div class="att-kpi">
+          <span class="att-kpi-label">Solo cena</span>
+          <span class="att-kpi-value" id="att-cena">0</span>
+        </div>
+      </div>
+
+      <!-- Muro de chips con nombres -->
+      <div class="attendees-wall" id="attendees-wall">
+        <!-- Chips generados por app.js -->
+      </div>
+
+      <p class="att-note">
+        * Si ya completaste el formulario y pagaste la seña, pronto vas a aparecer en esta lista.
+      </p>
+    </section>
     <!-- ====== FECHA ====== -->
     <section class="section" id="fecha">
       <div class="icon-card glass center">
@@ -231,41 +265,7 @@
       </p>
     </div>
 
-    <!-- ===== PERSONAS QUE VAN (conectado a Google Sheets) ===== -->
-    <section class="section" id="asistentes">
-      <div class="icon-card glass center">
-        <div class="icon-emoji" aria-hidden="true">👥</div>
-        <h2 class="section-title">Personas que van</h2>
-        <p class="lead">
-          Lista generada automáticamente según las tarjetas confirmadas.
-        </p>
-      </div>
-
-      <!-- KPIs pequeños de asistentes -->
-      <div class="attendees-summary">
-        <div class="att-kpi">
-          <span class="att-kpi-label">Total de personas</span>
-          <span class="att-kpi-value" id="att-total">0</span>
-        </div>
-        <div class="att-kpi">
-          <span class="att-kpi-label">Full Pass</span>
-          <span class="att-kpi-value" id="att-full">0</span>
-        </div>
-        <div class="att-kpi">
-          <span class="att-kpi-label">Solo cena</span>
-          <span class="att-kpi-value" id="att-cena">0</span>
-        </div>
-      </div>
-
-      <!-- Muro de chips con nombres -->
-      <div class="attendees-wall" id="attendees-wall">
-        <!-- Chips generados por app.js -->
-      </div>
-
-      <p class="att-note">
-        * Si ya completaste el formulario y pagaste la seña, pronto vas a aparecer en esta lista.
-      </p>
-    </section>
+   
   </main>
 
   <!-- FOOTER -->
